@@ -28,9 +28,11 @@ public class OpenSessionInViewFilter implements Filter {
 			chain.doFilter(request, response);
 			tx.commit();
 			System.out.println("sending response");
+
 		}catch(Exception e){
 			tx.rollback();
 		}
+
 	}
 
 	public void destroy() {
